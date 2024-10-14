@@ -28,14 +28,9 @@ struct PDFRenderer<Content> where Content : View {
   /// - Returns: Returns the URL at which the pdf was updated
   func render(
     urlPathString: String = UrlPath.url,
-    view: Content,
-    headerView: Content,
-    footerView: Content
+    view: Content
   ) -> URL {
 
-    let header = AnyView(headerView)
-    let footer = AnyView(footerView)
-    
     let renderer = ImageRenderer(content: view)
     let url = URL.documentsDirectory.appending(path: UrlPath.url)
     
